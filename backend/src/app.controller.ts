@@ -18,21 +18,76 @@ export class AppController {
   }
 
   /* UI here */
+  // @Get('ui/login-form')
+  // getLoginFormUI(): string {
+  //   return `
+  //     <div>
+  //       <p>E-Mail</p>
+  //       <input id="email-input" type="email"/>
+  //     </div>
+  //     <div>
+  //       <p>Password</p>
+  //       <input id="password-input" type="password"/>
+  //     </div>
+  //     <div>
+  //       <button id="login-button">Login</button>
+  //     </div>
+  //   `;
+  // }
+
   @Get('ui/login-form')
-  getLoginFormUI(): string {
-    return `
-      <div>
-        <p>E-Mail</p>
-        <input id="email-input" type="email"/>
-      </div>
-      <div>
-        <p>Password</p>
-        <input id="password-input" type="password"/>
-      </div>
-      <div>
-        <button id="login-button">Login</button>
-      </div>
-    `;
+  getLoginFormUI(): any {
+    return JSON.parse(`
+      {
+        "templateId": "login-form",
+        "version": "1",
+        "preferredOrientation": "vertical",
+        "parts":
+        [
+          {
+            "label": {
+              "text": "Login Form",
+              "type": "headline"
+            }
+          },
+          {
+            "label": {
+              "text": "E-Mail",
+              "type": "plain"
+            }
+          },
+          {
+            "input": {
+              "type": "text",
+              "text": "",
+              "placeholder": "E-Mail"
+            }
+          },
+          {
+            "label": {
+              "text": "Password",
+              "type": "plain"
+            }
+          },
+          {
+            "input": {
+              "type": "password",
+              "text": "",
+              "placeholder": "Password"
+            }
+          },
+          {
+            "button":{
+              "text": "Login",
+              "action": {
+                "type": "url",
+                "target": "http://ec2-54-157-129-199.compute-1.amazonaws.com:3000/api/login"
+              }
+            }
+          }
+        ]
+      }
+    `);
   }
 
   @Get('ui/login-success')
