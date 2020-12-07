@@ -81,7 +81,7 @@ export class AppController {
               "text": "Login",
               "action": {
                 "type": "url",
-                "target": "http://ec2-54-157-129-199.compute-1.amazonaws.com:3000/api/login"
+                "target": "http://ec2-54-172-192-20.compute-1.amazonaws.com:3000/api/login"
               }
             }
           }
