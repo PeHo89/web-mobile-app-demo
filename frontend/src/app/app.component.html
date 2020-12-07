@@ -1,3 +1,4 @@
+<h1>With *ngIf</h1>
 <div>
   <div *ngFor="let part of uiConfig.parts; let i = index;">
     <app-label *ngIf="part.hasOwnProperty('label')"
@@ -17,3 +18,40 @@
   </div>
   <span *ngIf="loggedIn">Successfully logged in!</span>
 </div>
+
+
+<h1>Programmatically #1</h1>
+<div>
+  <ng-template componentHost></ng-template>
+</div>
+
+
+<h1>*ngContainer & *ngContainerOutlet</h1>
+<div>
+  <div *ngFor="let part of uiConfig.parts; let i = index;">
+    <ng-container
+      *ngTemplateOutlet="{'label': label, 'input': input, 'button': button}[getTemplate(part)];
+          context: {content: part}">
+    </ng-container>
+  </div>
+  <span *ngIf="loggedIn">Successfully logged in!</span>
+</div>
+
+<ng-template #label let-part="content">
+  <app-label [text]="part.label.text">
+  </app-label>
+</ng-template>
+
+<ng-template #input let-part="content">
+  <app-input [text]="part.input.text"
+             [type]="part.input.type"
+             [placeholder]="part.input.placeholder"
+             (userInput)="setInput(part.input.name, $event)">
+  </app-input>
+</ng-template>
+
+<ng-template #button let-part="content">
+  <app-button [text]="part.button.text"
+              (buttonClick)="onSubmit(part.button.action.target)">
+  </app-button>
+</ng-template>

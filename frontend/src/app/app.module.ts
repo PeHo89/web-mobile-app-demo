@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import { InputComponent } from './input/input.component';
 import { ButtonComponent } from './button/button.component';
 import { LabelComponent } from './label/label.component';
+import { CustomComponentDirective } from './custom-component.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { LabelComponent } from './label/label.component';
     InputComponent,
     ButtonComponent,
     LabelComponent,
+    CustomComponentDirective
   ],
   imports: [
     BrowserModule,

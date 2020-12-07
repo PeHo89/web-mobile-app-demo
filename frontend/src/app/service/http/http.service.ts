@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class HttpService {
 
-  constructor() { }
-
   async login(url: string, username: string, password: string): Promise<boolean> {
     try {
       const result = await fetch(url,
