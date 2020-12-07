@@ -1,1 +1,19 @@
+<div>
+  <div *ngFor="let part of uiConfig.parts; let i = index;">
+    <app-label *ngIf="part.hasOwnProperty('label')"
+               [text]="part.label.text">
 
+    </app-label>
+    <app-input *ngIf="part.hasOwnProperty('input')"
+               [text]="part.input.text"
+               [type]="part.input.type"
+               [placeholder]="part.input.placeholder"
+               (userInput)="setInput(part.input.name, $event)">
+    </app-input>
+    <app-button *ngIf="part.hasOwnProperty('button')"
+                [text]="part.button.text"
+                (buttonClick)="onSubmit(part.button.action.target)">
+    </app-button>
+  </div>
+  <span *ngIf="loggedIn">Successfully logged in!</span>
+</div>

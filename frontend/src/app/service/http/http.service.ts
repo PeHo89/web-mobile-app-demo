@@ -7,9 +7,9 @@ export class HttpService {
 
   constructor() { }
 
-  async login(username: string, password: string): Promise<boolean> {
+  async login(url: string, username: string, password: string): Promise<boolean> {
     try {
-      const result = await fetch('http://ec2-54-172-192-20.compute-1.amazonaws.com:3000/api/login',
+      const result = await fetch(url,
         {
           method: 'POST',
           headers: [['Content-Type', 'application/json']],
@@ -18,6 +18,9 @@ export class HttpService {
 
       if (result.ok) {
         return await result.json() as boolean;
+      } else {
+        alert(`${result.status} - ${result.statusText}`);
+        return false;
       }
     } catch (e) {
       return false;

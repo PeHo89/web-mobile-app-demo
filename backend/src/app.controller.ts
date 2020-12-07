@@ -60,6 +60,7 @@ export class AppController {
             "input": {
               "type": "text",
               "text": "",
+              "name: "username,
               "placeholder": "E-Mail"
             }
           },
@@ -73,6 +74,7 @@ export class AppController {
             "input": {
               "type": "password",
               "text": "",
+              "name: "password,
               "placeholder": "Password"
             }
           },
