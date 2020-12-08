@@ -13,6 +13,7 @@ import { ButtonComponent } from './button/button.component';
 })
 export class AppComponent implements OnInit {
   uiConfig = {} as any;
+  uiConfigExtended = {} as any;
   userInputs = {} as any;
   loggedIn = false;
 
@@ -25,8 +26,11 @@ export class AppComponent implements OnInit {
   ){}
 
   async ngOnInit() {
-    const response = await fetch('http://ec2-54-172-192-20.compute-1.amazonaws.com:3000/ui/login-form');
+    let response = await fetch('http://ec2-54-172-192-20.compute-1.amazonaws.com:3000/ui/login-form');
     this.uiConfig = await response.json();
+
+    response = await fetch('http://ec2-54-172-192-20.compute-1.amazonaws.com:3000/ui/login-form-extended');
+    this.uiConfigExtended = await response.json();
 
     this.loadComponent();
   }

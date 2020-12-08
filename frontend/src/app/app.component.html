@@ -55,3 +55,29 @@
               (buttonClick)="onSubmit(part.button.action.target)">
   </app-button>
 </ng-template>
+
+
+<hr>
+<hr>
+
+
+<h1>With *ngIf (login-form-extended)</h1>
+<div>
+  <div *ngFor="let part of uiConfigExtended.parts; let i = index;">
+    <app-label *ngIf="part.hasOwnProperty('label')"
+               [text]="part.label.text">
+
+    </app-label>
+    <app-input *ngIf="part.hasOwnProperty('input')"
+               [text]="part.input.text"
+               [type]="part.input.type"
+               [placeholder]="part.input.placeholder"
+               (userInput)="setInput(part.input.name, $event)">
+    </app-input>
+    <app-button *ngIf="part.hasOwnProperty('button')"
+                [text]="part.button.text"
+                (buttonClick)="onSubmit(part.button.action.target)">
+    </app-button>
+  </div>
+  <span *ngIf="loggedIn">Successfully logged in!</span>
+</div>
