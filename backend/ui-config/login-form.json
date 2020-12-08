@@ -1,0 +1,45 @@
+{
+  "templateId": "login-form",
+  "version": "1",
+  "preferredOrientation": "vertical",
+  "parts":
+  [
+    {
+      "component": "label",
+      "text": "Login Form",
+      "type": "headline"
+    },
+    {
+      "component": "label",
+      "text": "E-Mail",
+      "type": "plain"
+    },
+    {
+      "component": "input",
+      "type": "text",
+      "text": "",
+      "name": "username",
+      "placeholder": "E-Mail"
+    },
+    {
+      "component": "label",
+      "text": "Password",
+      "type": "plain"
+    },
+    {
+      "component": "input",
+      "type": "password",
+      "text": "",
+      "name": "password",
+      "placeholder": "Password"
+    },
+    {
+      "component": "button",
+      "text": "Login",
+      "action": {
+        "type": "url",
+        "target": "http://ec2-54-172-192-20.compute-1.amazonaws.com:3000/api/login"
+      }
+    }
+  ]
+}

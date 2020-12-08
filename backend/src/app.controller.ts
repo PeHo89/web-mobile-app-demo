@@ -35,6 +35,77 @@ export class AppController {
   //   `;
   // }
 
+  @Get('ui/login-form-extended')
+  getLoginFormUIV2(): any {
+    return JSON.parse(`
+      {
+        "templateId": "login-form-extended",
+        "version": "1",
+        "preferredOrientation": "vertical",
+        "parts":
+        [
+          {
+            "label": {
+              "text": "Login Form",
+              "type": "headline"
+            }
+          },
+          {
+            "label": {
+              "text": "E-Mail",
+              "type": "plain"
+            }
+          },
+          {
+            "input": {
+              "type": "text",
+              "text": "",
+              "name": "username",
+              "placeholder": "E-Mail"
+            }
+          },
+          {
+            "label": {
+              "text": "Password",
+              "type": "plain"
+            }
+          },
+          {
+            "input": {
+              "type": "password",
+              "text": "",
+              "name": "password",
+              "placeholder": "Password"
+            }
+          },
+          {
+            "label": {
+              "text": "2FA",
+              "type": "plain"
+            }
+          },
+          {
+            "input": {
+              "type": "number",
+              "text": "",
+              "name": "twoFactor",
+              "placeholder": "123456"
+            }
+          },
+          {
+            "button":{
+              "text": "Login",
+              "action": {
+                "type": "url",
+                "target": "http://ec2-54-172-192-20.compute-1.amazonaws.com:3000/api/login"
+              }
+            }
+          }
+        ]
+      }
+    `);
+  }
+
   @Get('ui/login-form')
   getLoginFormUI(): any {
     return JSON.parse(`
@@ -60,7 +131,7 @@ export class AppController {
             "input": {
               "type": "text",
               "text": "",
-              "name: "username,
+              "name": "username",
               "placeholder": "E-Mail"
             }
           },
@@ -74,7 +145,7 @@ export class AppController {
             "input": {
               "type": "password",
               "text": "",
-              "name: "password,
+              "name": "password",
               "placeholder": "Password"
             }
           },
